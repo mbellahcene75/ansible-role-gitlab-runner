@@ -1,0 +1,6 @@
+- name: Add a crontab cleaning docker spool
+  cron:
+    name: "Clean docker spool"
+    job: "docker system prune --volumes -f"
+    minute: "0"
+    hour: "23"

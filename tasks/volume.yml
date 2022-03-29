@@ -1,0 +1,11 @@
+---
+
+
+- name: Ensure disk tools are present
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - e2fsprogs
+
+...

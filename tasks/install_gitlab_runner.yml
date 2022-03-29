@@ -1,0 +1,29 @@
+---
+- name: Check GitLab’s official repository added
+  shell: yum repolist runner_gitlab-runner -q | wc -l
+  register: is_gitlab_repository_added
+  # Yum repository list does not exist yet
+  args:
+    warn: false
+  changed_when: false
+
+- name: Download script.rpm.sh
+  get_url:
+    url: https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh
+    dest: "{{ gitlab_runner_rpm_script_dst_path }}"
+    mode: u+x
+  when: is_gitlab_repository_added.stdout == "0"
+
+- name: Execute script.rpm.sh to add GitLab’s official repository
+  command: "{{ gitlab_runner_rpm_script_dst_path }}"
+  when: is_gitlab_repository_added.stdout == "0"
+
+- name: Delete script.rpm.sh
+  file:
+    path: "{{ gitlab_runner_rpm_script_dst_path }}"
+    state: absent
+
+- name: Ensure gitlab-runner is installed
+  package:
+    name: gitlab-runner-{{ gitlab_runner_version }}
+    state: present

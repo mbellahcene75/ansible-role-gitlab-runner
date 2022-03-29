@@ -1,0 +1,22 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: gitlab-runner
+  author: mbellahcene75
+  description: gitlab runner  for Linux.
+  company: "Midwestern Mac, LLC"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+  platforms:
+    - name: EL
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - runner
+    - gitlab
+    - ci
+    - cd
+    - orchestration
+

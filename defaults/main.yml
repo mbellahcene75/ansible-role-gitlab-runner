@@ -1,0 +1,3 @@
+gitlab_runner_version: "14.9.1"
+gitlab_runner_rpm_script_dst_path: "/tmp/script.rpm.sh"
+volumes:

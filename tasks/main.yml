@@ -1,0 +1,22 @@
+---
+
+- name: Ensure disk tools are present
+  include: volume.yml
+  tags:
+    - volume
+
+- name: Include install Gitlab Runner tasks
+  include: install_gitlab_runner.yml
+  tags:
+    - install
+
+- name: Include sysctl tasks
+  include: sysctl.yml
+  tags:
+    - sysctl
+
+- name: Include cron tasks
+  include: cron.yml
+  tags:
+    - cron
+
