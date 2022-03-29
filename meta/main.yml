@@ -1,7 +1,7 @@
 ---
 dependencies: []
 galaxy_info:
-  role_name: gitlab-runner
+  role_name: gitlabrunner
   author: mbellahcene75
   description: gitlab runner  for Linux.
   company: "Midwestern Mac, LLC"
